@@ -1,42 +1,35 @@
-
-
-  // Put your solution here
-  // console.log(matrix);
-  const transpose = (matrix) => {
-    // console.log('before matrix', matrix)
-    // console.log(matrix.length);
-    let transposeArray = [];
-
-    matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
-//     for (var i = 0; i < matrix.length; i++) {
-//       for (var j = 0; j < i; j++) {
-//         const temp = matrix[i][j];
-//         console.log(temp);
-//         matrix[i][j] = matrix[j][i];
-//         matrix[j][i] = temp;
-//       }
-//     }
-//     console.log('after matrix', matrix)
-    return matrix;
+// Put your solution here
+const transpose = (matrix) => {
+  let row = matrix[0].length;// horizontal length of first array
+  let col = matrix.length; // vertical length of array
+  let output = [];
+  for (let r = 0; r < row; r++) {
+    let outputRow = [];
+    for (let c = 0; c < col; c++) {
+      outputRow.push(matrix[c][r]);
+    }
+    output.push(outputRow);
+  }
+  return output;
 };
 
 // Do not edit this function.
-// console.log(matrix);
+// console.log(transpose());
 const printMatrix = (matrix) => {
-    for (const row of matrix) {
-        for (const el of row) {
-            process.stdout.write(el + " ");
-        }
-        process.stdout.write('\n')
+  for (const row of matrix) {
+    for (const el of row) {
+      process.stdout.write(el + " ");
     }
+    process.stdout.write('\n')
+  }
 }
 
-// printMatrix(transpose([
-//   [1, 2, 3, 4],
-//   [1, 2, 3, 4],
-//   [1, 2, 3, 4],
-//   [1, 2, 3, 4]
-// ]));
+printMatrix(transpose([
+  [1, 2, 3, 4],
+  [1, 2, 3, 4],
+  [1, 2, 3, 4],
+  [1, 2, 3, 4]
+]));
 
 console.log('----')
 
@@ -51,6 +44,6 @@ printMatrix(transpose([
 
 console.log('----')
 
-// printMatrix(transpose([
-//   [1, 2, 3, 4, 5, 6, 7]
-// ]));
+printMatrix(transpose([
+  [1, 2, 3, 4, 5, 6, 7]
+]));
